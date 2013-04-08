@@ -2,54 +2,98 @@ $(document).ready(function(){
 
   var url = "http://localhost:8071/motion-control/update";
   
-  $(document).keyup(function(){
-  	console.log("moving forward...")
-  	$.ajax(url, {dataType: "jsonp", data: {forward: +1}, success: function(){
-  	}});
-  })
+  // $("li").click(function(e){
+  //   e.preventDefault();
+  //   $("li").removeClass("action");
+  //   $(this).addClass("controls");
+  // });
 
-  $(".move-backward").on("click",function(){
-  	console.log("moving backward...")
-  	$.ajax(url, {dataType: "jsonp", data: {forward: -1}, success: function(){
-  	}});
-  })
-
-  $(".turn-left").on("click",function(){
-  	console.log("turing left...");
-  	$.ajax(url, {dataType: "jsonp", data: {turn: -1}, success: function(){
-  	}});
-  })
-
-  $(".turn-right").on("click",function(){
-  	console.log("turing right...")
-  	$.ajax(url, {dataType: "jsonp", data: {turn: +1}, success: function(){
-  	}});
-  })
-
-  $(".strafe-right").on("click",function(){
-  	console.log("strafing right...")
-  	$.ajax(url, {dataType: "jsonp", data: {strafe: +1}, success: function(){
-  	}});
-  })
-
-  $(".strafe-left").on("click",function(){
-  	console.log("strafing left...")
-  	$.ajax(url, {dataType: "jsonp", data: {strafe: -1}, success: function(){
-  	}});
-  })
+// switch 
+// case
+$(".test").click(function(){
+	console.log("testing")
+	$(".test").animate({marginLeft: "+=250px"}, 1000);
+})
 
 
-  $(".stop").on("click",function(){
-  	$.ajax(url, {dataType: "jsonp", data: {turn: 0}, success: function(){
-  	console.log("stopping...")
-  }});
-	});
+// JQ for Key Down
+$(document).keydown(function(e) {
+    if (e.keyCode == 38) {
+    $('.move-forward').closest('div').addClass('active');
+    $(".move-forward").closest('direction').animate({marginLeft: "+=250px"}, 1000);
+    $.ajax(url, {dataType: "jsonp", data: {forward: +1}});
+  };
 
+    if (e.keyCode == 40) {
+    $('.move-backward').closest('div').addClass('active');
+    console.log("backward..");
+    $.ajax(url, {dataType: "jsonp", data: {forward: -1}});
+  };
 
+    if (e.keyCode == 39) {
+    $('.turn-right').closest('div').addClass('active');
+    console.log("turning right...");
+    $.ajax(url, {dataType: "jsonp", data: {turn: +1}});
+  };
+
+    if (e.keyCode == 37) {
+    $('.turn-left').closest('div').addClass('active');
+    console.log("turning left...");
+    $.ajax(url, {dataType: "jsonp", data: {turn: -1}});
+  };
+
+    if (e.keyCode ==  83) {
+    $('.strafe-right').closest('div').addClass('active');
+    console.log("strafing right...");
+    $.ajax(url, {dataType: "jsonp", data: {strafe: +1}});
+  };
+
+    if (e.keyCode ==  65) {
+    $('.strafe-left').closest('div').addClass('active');
+    console.log("strafing left...");
+    $.ajax(url, {dataType: "jsonp", data: {strafe: -1}});
+  };
+
+    if (e.keyCode ==  32) {
+    $('.stop').closest('div').addClass('active');
+    console.log("stopping...");
+    $.ajax(url, {dataType: "jsonp", data: {turn: 0}});
+  };
+  });
+
+// JQ for KeyUP
+$(document).keyup(function(e) {
+    if (e.keyCode == 38) {
+    $('.move-forward').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 40) {
+    $('.move-backward').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 39) {
+    $('.turn-right').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 37) {
+    $('.turn-left').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 83) {
+    $('.strafe-right').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 65) {
+    $('.strafe-left').closest('div').removeClass('active');
+  };
+
+    if (e.keyCode == 32) {
+    $('.stop').closest('div').removeClass('active');
+  };
+});
 
 
 
 
 
 })
-

@@ -1,3 +1,28 @@
-.move-forward {
-	
+
+li {
+	list-style: none;
+}
+
+.test {
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	float: left;
+	margin: 10px;
+	background-color: #CCC;
+	position: absolute;
+	margin-top: 200px;
+}
+
+.direction {
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	float: left;
+	margin: 10px;
+	background-color: #CCC;
+}
+
+.active {
+	background-color: #FFF;
 }
