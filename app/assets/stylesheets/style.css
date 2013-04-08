@@ -1,28 +1,80 @@
-
-li {
-	list-style: none;
+#main-container {
+	width: 50%;
+	margin: 0 auto;
+	border: 5px solid black;
+	position: relative;
+	margin-top: 200px;
 }
 
-.test {
-	height: 100px;
-	width: 100px;
-	border: 1px solid black;
-	float: left;
-	margin: 10px;
-	background-color: #CCC;
-	position: absolute;
-	margin-top: 200px;
+.turn {
+	border-radius: 50px;
 }
 
 .direction {
 	height: 100px;
 	width: 100px;
-	border: 1px solid black;
-	float: left;
-	margin: 10px;
 	background-color: #CCC;
 }
 
 .active {
-	background-color: #FFF;
+	background-color: black;
 }
+
+.body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0;
+	margin-top: -51px;
+	margin-left: -51px;
+	z-index:100;
+}
+
+.right-arm {
+	z-index:-1;
+}
+
+.left-arm {
+	z-index:-1;
+}
+
+.vertical {
+	position: absolute;
+	z-index: -1;
+}
+
+.inrow {
+	display: inline-block;
+}
+
+/*style inside the box*/
+.ht {
+	background-color:#FFF;
+	background:url(/assets/hammer_pants.png) no-repeat;
+	background-position: center center;
+}
+
+.right {
+	background-position: 150% 50%;
+}
+
+.left {
+	background-position: -45% 50%;
+}
+
+.head {
+	background-position: center top;
+}
+
+.feet {
+	background-position: center bottom;
+
+}
+
+.middle {
+	display: table;
+	margin: 0 auto;
+}
+
+
+

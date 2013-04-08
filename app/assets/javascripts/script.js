@@ -10,54 +10,64 @@ $(document).ready(function(){
 
 // switch 
 // case
-$(".test").click(function(){
-	console.log("testing")
-	$(".test").animate({marginLeft: "+=250px"}, 1000);
-})
-
 
 // JQ for Key Down
 $(document).keydown(function(e) {
+// 	$('.turn-left').click(function(){
+//     // $('.turn-left').closest('div').effect("bounce", {times:3}, 300);
+//     $('.turn-left').closes('div').effect("bounce", {times:3}, 300);
+// });
+
+
     if (e.keyCode == 38) {
     $('.move-forward').closest('div').addClass('active');
-    $(".move-forward").closest('direction').animate({marginLeft: "+=250px"}, 1000);
+    $('.move-forward').closest('div').animate({"top": "-=30px"}, 1000);
+    $('.move-forward').closest('div').addClass('ht head');
     $.ajax(url, {dataType: "jsonp", data: {forward: +1}});
   };
 
     if (e.keyCode == 40) {
     $('.move-backward').closest('div').addClass('active');
+    $('.move-backward').closest('div').animate({"top": "+=30px"}, 1000);
+    $('.move-backward').closest('div').addClass('ht feet');
     console.log("backward..");
     $.ajax(url, {dataType: "jsonp", data: {forward: -1}});
   };
 
-    if (e.keyCode == 39) {
+    if (e.keyCode == 83) {	
     $('.turn-right').closest('div').addClass('active');
     console.log("turning right...");
     $.ajax(url, {dataType: "jsonp", data: {turn: +1}});
   };
 
-    if (e.keyCode == 37) {
+    if (e.keyCode == 65) {
     $('.turn-left').closest('div').addClass('active');
+    $('.turn-left').closest('div').effect("bounce, {times:3}, 300");
     console.log("turning left...");
     $.ajax(url, {dataType: "jsonp", data: {turn: -1}});
   };
 
-    if (e.keyCode ==  83) {
+    if (e.keyCode ==  39) {
     $('.strafe-right').closest('div').addClass('active');
+    $('.strafe-right').closest('div').animate({"marginLeft": "+=30px"}, 1000);
+    $('.strafe-right').closest('div').addClass('ht right');
     console.log("strafing right...");
     $.ajax(url, {dataType: "jsonp", data: {strafe: +1}});
   };
 
-    if (e.keyCode ==  65) {
-    $('.strafe-left').closest('div').addClass('active');
-    console.log("strafing left...");
+    if (e.keyCode ==  37) {
+    $('.strafe-left').closest('div').addClass('active')
+    $('.strafe-left').closest('div').animate({"marginLeft": "-=30px"}, 1000);
+    $('.strafe-left').closest('div').addClass('ht left');
+    console.log("strafing left...")
     $.ajax(url, {dataType: "jsonp", data: {strafe: -1}});
   };
 
     if (e.keyCode ==  32) {
-    $('.stop').closest('div').addClass('active');
+    $('.stop').closest('div').addClass('ht');
     console.log("stopping...");
     $.ajax(url, {dataType: "jsonp", data: {turn: 0}});
+
   };
   });
 
@@ -71,19 +81,19 @@ $(document).keyup(function(e) {
     $('.move-backward').closest('div').removeClass('active');
   };
 
-    if (e.keyCode == 39) {
+    if (e.keyCode == 83) {
     $('.turn-right').closest('div').removeClass('active');
   };
 
-    if (e.keyCode == 37) {
+    if (e.keyCode == 65) {
     $('.turn-left').closest('div').removeClass('active');
   };
 
-    if (e.keyCode == 83) {
+    if (e.keyCode == 39) {
     $('.strafe-right').closest('div').removeClass('active');
   };
 
-    if (e.keyCode == 65) {
+    if (e.keyCode == 37) {
     $('.strafe-left').closest('div').removeClass('active');
   };
 
